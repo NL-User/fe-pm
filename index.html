@@ -7,10 +7,11 @@
 <link rel="stylesheet" href="">
 <script>
     const randRange = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
-    let url = "https://www.fe-siken.com/kakomon/22_haru/pm04.html";
+    let url = "";
     var target_frame = document.getElementById('target_frame');
     const season = ["haru","aki","toku"];
     function change(term="random"){
+        changeURL();
         console.log(term);
         let target_year, target_problem, target_season;
         while(true){
@@ -51,6 +52,14 @@
     function button(){
         let num = document._form._select.selectedIndex;
         change(document._form._select.options[num].value);
+    }
+
+    function changeURL(){
+        if (window.innerWidth < 800){
+            url = "https://www.fe-siken.com/s/kakomon/22_haru/pm04.html";
+        }else {
+            url = "https://www.fe-siken.com/kakomon/22_haru/pm04.html";
+        }
     }
     window.onload = function() {
         change();
